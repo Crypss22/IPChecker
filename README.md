@@ -1,5 +1,25 @@
-# IPChecker
-IP checker that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information back to the user.
+# Python IPChecker
+## About
+IPChecker is a python project of mine that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information on an IP back to the user. The program is simple and all that is required from the user is a AbuseIPDB API key, and the IP in which they wish to query.
+**Information that is returned to the user consists of:**       
+* IP
+* Abuse Confidence Score
+* Total Reports
+* Last Reported At
+* Country Name
+* ISP
+* Hostnames
+* Domain
+* Usage Type
+
+**If information above is not returned to the user, it could not be found in the IP that was queried.**
+
+</br>
+
+> [!NOTE]
+> Feedback is encouraged and appreciated.
+</br>
+
 ```
 import requests
 
