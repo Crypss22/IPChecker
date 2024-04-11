@@ -1,6 +1,7 @@
 # IPChecker
 ## About
 IPChecker is a python project of mine that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information on an IP back to the user. The program is simple and all that is required from the user is a AbuseIPDB API key, and the IP in which they wish to query.
+
 **Information that is returned to the user consists of:**       
 * IP
 * Abuse Confidence Score
@@ -19,6 +20,9 @@ IPChecker is a python project of mine that queries AbuseIPDB utilizing their API
 > [!NOTE]
 > Feedback is encouraged and appreciated.
 </br>
+
+<img src="https://imgur.com/pzk7xeZ.png" height="80%" width="80%" alt="IPChecker">
+
 
 ```
 import requests
@@ -57,31 +61,16 @@ def delete_env():
     env_file_path = os.path.join(home_dir, 'api.env')
     if os.path.exists(env_file_path):
         os.remove(env_file_path)
-        
-
-#def read_env():
-#    home_dir = os.path.expanduser('~')
-#    env_file_path = os.path.join(home_dir, 'api.env')
-#    
-#    # READ API key    
-#    with open(env_file_path, 'r') as env_file:
-#            for line in env_file_path:
-#                if line.startswith("API_KEY="):
-#                    api_key = line.strip().split('=')[1]
-#                    return api_key
-
 
 print('''
-
 ╔══╗╔═══╗╔═══╗╔╗          ╔╗         
 ╚╣╠╝║╔═╗║║╔═╗║║║          ║║         
  ║║ ║╚═╝║║║ ╚╝║╚═╗╔══╗╔══╗║║╔╗╔══╗╔═╗
  ║║ ║╔══╝║║ ╔╗║╔╗║║╔╗║║╔═╝║╚╝╝║╔╗║║╔╝
 ╔╣╠╗║║   ║╚═╝║║║║║║║═╣║╚═╗║╔╗╗║║═╣║║ 
 ╚══╝╚╝   ╚═══╝╚╝╚╝╚══╝╚══╝╚╝╚╝╚══╝╚╝
-
 ''')
-print("All information provided by AbuseIPDB.")
+print("All information is provided by AbuseIPDB.")
 
 
 attempt = 0
@@ -147,62 +136,10 @@ if r.status_code == 200:
         print('Domain Name:', data['domain'])
     if 'usageType' in data:
         print('Usage Type:', data['usageType'])
-
-# THE FOLLOWING API'S "REPORT" ENDPOINT IS IN BETA AND MAY HAVE BEEN CHANGED WITHOUT NOTICE. CHECK DOCUMENTATION.  
-    #reports = r.json()['data']['reports']   
-    #if reports in data:
-    #    print('Top 3 Reports:')
-    #    print('')
-    ## USER REPORTS
-    #    #reports = r.json()['data']['reports']
-    #    categories = {'1':'DNS Compromise', 
-    #                '2':'DNS Poisoning', 
-    #                '3':'Fraud Orders', 
-    #                '4':'DDoS Attac k', 
-    #                '5':'FTP Brute-Force', 
-    #                '6':'Ping of Death', 
-    #                '7':'Phishing', 
-    #                '8':'Fraud', 
-    #                '9':'Open Proxy',
-    #                '10':'Web Spam', 
-    #                '11':'Email Spam', 
-    #                '12':'Blog Spam', 
-    #                '13':'VPN IP', 
-    #                '14':'Port Scan', 
-    #                '15':'Hacking',}
-
-    #    # 1ST REPORT
-
-    #    #category_match = reports[0]['categories']
-    #    #for match in category_match:
-    #    #category_name = categories.get(str(match))
-    #
-    #    print('Reporter Country:', reports[0]['reporterCountryName'])
-    #    print('Reported At:', reports[0]['reportedAt']) 
-    #    #print('Categories: ', category_name)
-    #    print('Comment:', reports[0]['comment'])
-    #    print('-------------------------------------------------------')
-    #
-    #    # 2ND REPORT
-
-    #    print('Reporter Country:', reports[1]['reporterCountryName'])
-    #    print('Reported At:', reports[1]['reportedAt'])
-    #    print('Comment:', reports[1]['comment'])
-    #    print('-------------------------------------------------------')
-
-    #    # 3RD REPORT
-
-    #    print('Reporter Country:', reports[2]['reporterCountryName'])
-    #    print('Reported At:', reports[2]['reportedAt'])
-    #    print('Comment:', reports[2]['comment'])
-    #    print('-------------------------------------------------------')
-    #else:
-    #    None
-        
+       
 else:
     print(f'An error occurred. Status code: {r.status_code}')
 
 print('')
 input('Press enter to exit..')
-
 ```
