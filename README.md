@@ -5,7 +5,7 @@ IPChecker is a python project of mine that queries AbuseIPDB utilizing their API
 **Information that is returned to the user consists of:**       
 * IP
 * Abuse Confidence Score
-* Total Reports
+* Total Reports (Past 30 Days)
 * Last Reported At
 * Country Name
 * ISP
