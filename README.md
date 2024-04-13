@@ -2,12 +2,12 @@
 <img src="https://forthebadge.com/images/badges/made-with-python.png" height="15%" width="15%">
 
 ## About
-IPChecker is a project of mine that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information on an IP back to the user. The program is simple and all that is required from the user is an AbuseIPDB API key, and the IP in which they wish to query.
+IPChecker, a python program that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information on an IP back to the user. The program is simple and all that is required from the user is an AbuseIPDB API key, and the IP in which they wish to query.
 
 The user's API key is temporarily stored as an environment variable and only persists as long as the session. In future updates I hope to streamline the querying process and improve user experience by permanently and securely storing a user's API key once entered.
 
 ### Requirements
-* Libraries: ```colorama``` ```requests```
+* Dependencies: ```colorama``` ```requests```
 
 **Information that is returned to the user consists of:**       
 * IP
