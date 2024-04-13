@@ -6,6 +6,9 @@ IPChecker is a project of mine that queries AbuseIPDB utilizing their API and qu
 
 The user's API key is temporarily stored as an environment variable and only persists as long as the session. In future updates I hope to streamline the querying process and improve user experience by permanently and securely storing a user's API key once entered.
 
+### Requirements
+* Libraries: ```colorama``` ```requests```
+
 **Information that is returned to the user consists of:**       
 * IP
 * Abuse Confidence Score
