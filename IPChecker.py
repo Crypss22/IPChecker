@@ -1,5 +1,7 @@
 import requests
 from colorama import Fore, Back, Style
+import keyring
+import keyring.errors
 
 import sys
 import os
@@ -8,13 +10,18 @@ import re
 
 os.system('cls' or 'clear')
 
-def create_env():
-    os.environ['ipchecker'] = api_key
+service_id = 'abuseapi'
+username = 'api_key'
 
-def check_for_env():
-    if os.environ.get('ipchecker') == True:
-        return True          
-    else:
+def create_keyring(service_id, username):
+    keyring.set_password(service_id, username, api_key)
+
+
+def check_for_keyring(service_id, username):
+    try:
+        keyring.get_password(service_id, username)
+        return True
+    except:          
         return False
     
 
@@ -34,15 +41,21 @@ print("All information is provided by AbuseIPDB.")
 
 
 attempt = 0
-api_key = check_for_env()
+api_key = check_for_keyring(service_id, username)
+
 
 while True:
-    if check_for_env() == False:
+    if check_for_keyring(service_id, username) == False:
         api_key = input("Please enter your AbuseIPDB API key: ")
-        clean_input = re.sub('[^0-9a-zA-Z]+', '', api_key)
-        if len(api_key) == 80 and api_key == clean_input:
-            create_env()
-            break
+        clean_input = len(api_key) == 80 and re.sub('[^0-9a-zA-Z]+', '', api_key)
+        if api_key == clean_input:
+            try:
+                create_keyring(service_id, username)
+                break
+            except keyring.errors.KeyringError as e:
+                print(f'An error occured storing the API key: {e}')
+                sys.exit()
+                
         elif attempt == 2:
             print("Too many attempts.. Exiting program.")
             time.sleep(1)
@@ -54,8 +67,45 @@ while True:
         attempt += 1
         
     else:
-        break
-    
+        new_api = input('Would you like to enter a new API key? [y/n] ' )
+        if new_api.lower() == 'y' or new_api.lower() == 'yes':
+            if keyring.get_password(service_id, username) is not None:
+                keyring.delete_password(service_id, username)
+            
+            api_key = input("Please enter your new API key: ")
+            clean_input = len(api_key) == 80 and re.sub('[^0-9a-zA-Z]+', '', api_key)
+            attempts = 0 
+            
+            if api_key == clean_input:
+                try:
+                    create_keyring(service_id, username)
+                    break
+                except keyring.errors.KeyringError as e:
+                    print(f'An error occured storing the API key: {e}')
+                    sys.exit()
+            
+            elif attempt == 2:
+                print("Too many attempts.. Exiting program.")
+                time.sleep(1)
+                sys.exit()
+            else:
+                print("AbuseIPDB API key not recognized, please try again.")
+                print('')
+                time.sleep(1)
+                attempt += 1
+
+        elif new_api.lower() == 'n' or new_api.lower() == 'no':
+            if keyring.get_password(service_id, username) is None:
+                print('No existing API key found. Please input a new one.')
+                continue
+        
+        else:
+            print("Sorry, an error has occured. Please try again.")
+            time.sleep(1)
+            sys.exit()
+        
+
+api_key = keyring.get_password(service_id, username)  
 ip = input('IP: ')
 
 # URL
