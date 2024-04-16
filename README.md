@@ -1,13 +1,19 @@
-# IPChecker v1
+# IPChecker v2
 <img src="https://forthebadge.com/images/badges/made-with-python.png" height="15%" width="15%">
 
 ## About
 IPChecker, a python program that queries AbuseIPDB utilizing their API and quickly returns pertinent, valuable information on an IP back to the user. The program is simple and all that is required from the user is an AbuseIPDB API key, and the IP in which they wish to query.
 
-The user's API key is temporarily stored as an environment variable and only persists as long as the session. In future updates I hope to streamline the querying process and improve user experience by permanently and securely storing a user's API key once entered.
-
 ### Requirements
-* Dependencies: ```colorama``` ```requests```
+* Dependencies: ```colorama``` ```requests``` ```keyring```
+
+### Updates:
+#### Version 1.0
+* The user's API key is temporarily stored as an environment variable and only persists as long as the session. In future updates I hope to streamline the querying process and improve user experience by permanently and securely storing a user's API key once entered.
+
+#### Version 2.0 (4/16/2024)
+* Introduces the keyring library, implementing a more seamless and secure user experience.
+
 
 **Information that is returned to the user consists of:**       
 * IP
