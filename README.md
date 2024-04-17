@@ -6,6 +6,7 @@ IPChecker, a python program that queries AbuseIPDB utilizing their API and quick
 
 ### Requirements
 * Dependencies: ```colorama``` ```requests``` ```keyring```
+> Ensure requirements are met before use of program. For dependency issues, please contact.
 
 ### Updates:
 #### Version 1.0
