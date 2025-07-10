@@ -35,6 +35,6 @@ IPChecker, a python program that queries AbuseIPDB utilizing their API and quick
 > Feedback is encouraged and appreciated.
 </br>
 
-<img src="https://imgur.com/0PXWWCG.png" height="80%" width="80%" alt="IPChecker">
+<img src="https://imgur.com/0PXWWCG.png" height=1000 width=1000 alt="IPChecker">
 
 **Certain aspects of the API such as returning reports made by users on the alleged use-case of the IP are in beta mode and are subject to not function properly. Due to this, the code does exist within the program, but is commented out.**
