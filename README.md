@@ -6,11 +6,11 @@ IPChecker, a python program that queries AbuseIPDB utilizing their API and quick
 
 ### Requirements
 * Dependencies: ```colorama``` ```requests``` ```keyring```
-> Ensure requirements are met before use of program. For dependency issues, please contact.
+> Ensure requirements are met before use of program.
 
 ### Updates:
 #### Version 1.0
-* The user's API key is temporarily stored as an environment variable and only persists as long as the session. In future updates I hope to streamline the querying process and improve user experience by permanently and securely storing a user's API key once entered.
+* The user's API key is temporarily stored as an environment variable and only persists as long as the session.
 
 #### Version 2.0 (4/16/2024)
 * Introduces the keyring library, implementing a more seamless and secure user experience.
